@@ -1,33 +1,37 @@
 #include <iostream>
 #include <algorithm>
+#include <limits.h>
 using namespace std;
 
 int D, N;
 int oven[300001];
-int pizza[300000];
+int pizza[300001];
 
 void input()
 {
 	cin >> D >> N;
-	for (int i = 1; i <= D; i++) cin >> oven[i];
-	for (int i = D - 1; i > 0; i--)
-	{
-		if (oven[i] < oven[i + 1]) oven[i + 1] = oven[i];
-	}
+	oven[0] = INT_MAX;
+		for (int i = 1; i <= D; i++)
+		{
+			cin >> oven[i];
+			oven[i] = min(oven[i], oven[i - 1]);
+		}
 	for (int i = 0; i < N; i++) cin >> pizza[i];
 }
 
 void solve()
 {
-	int idx = 0;
-	for (int i = D; i > 0; i--)
+	int i = 0;
+	for (int j = D; j > 0; j--)
 	{
-		if (pizza[idx] > oven[i]) continue;
-		idx += 1;
-		if (idx == N)
+		if (pizza[i] <= oven[j])
 		{
-			cout << i;
-			return;
+			i++;
+			if (i == N)
+			{
+				cout << j;
+				return;
+			}
 		}
 	}
 	cout << 0;
@@ -40,7 +44,6 @@ int main()
 	cout.tie(0);
 	input();
 	solve();
-
 
 	return 0;
 }
