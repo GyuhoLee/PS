@@ -8,11 +8,14 @@ using namespace std;
 int dy[4] = { -1, 1, 0, 0 };
 int dx[4] = { 0, 0, 1, -1 };
 
-ll N, M, K, H = 1;
-ll a, b, c;
-ll Tree[2097153];
+int N, K;
+int cnt, L;
+int arr[200001];
+int d[200001];
+int Tree[777777];
+set<int> S;
 
-ll solve(int s, int e)
+int solve(int s, int e)
 {
 	ll ret = 0;
 	while (s <= e)
@@ -31,31 +34,29 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 
-	MS(Tree, 0);
-	cin >> N >> M >> K;
-	M += K;
-
-	while (H < N) { H *= 2; }
-	FUP(i, 0, N - 1) cin >> Tree[H + i];
-	FDOWN(i, H - 1, 1) Tree[i] = Tree[i * 2] + Tree[i * 2 + 1];
-
-	while (M--)
+	int T;
+	cin >> T;
+	while (T--)
 	{
-		cin >> a >> b >> c;
-		if (a == 1)
+		cnt = 1; L = 1;
+		MS(d, 0);
+		cin >> N >> K;
+		FUP(i, 1, N)
 		{
-			ll idx = H + b - 1;
-			ll num = c - Tree[idx];
-			Tree[idx] = c;
-			change(idx / 2, num);
+			cin >> arr[i];
 		}
-		else
+		FUP(i, 2, N - 1)
 		{
-			cout << solve(H + b - 1, H + c - 1) << '\n';
+			if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1]) d[i] = 1;
 		}
-		FUP(1, N - K + 1)
+		int H = 1;
+		while (H < N) { H *= 2; }
+		FUP(i, 0, N - 1) Tree[H + i] = d[i];
+		FUP(i, N, H - 1) Tree[H + i] = 0;
+		FDOWN(i, H - 1, 1) Tree[i] = Tree[i * 2] + Tree[i * 2 + 1];
+		FUP(i, 1, N - K + 1)
 		{
-			int num = solve(H + i + 1, H + i + K - 2)
+			int num = solve(H + i + 1, H + i + K - 2) + 1;
 			if (num > cnt)
 			{
 				cnt = num;
@@ -63,8 +64,8 @@ int main()
 			}
 		}
 		cout << cnt << ' ' << L << '\n';
-	}
 
+	}
 
 	return 0;
 }
