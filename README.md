@@ -148,10 +148,16 @@
 -------------
 
 [bojid]: https://www.acmicpc.net/user/gyuho965 "visit"
+
 [cfid1]: https://codeforces.com/profile/gyuho965 "visit"
+
 [cfid2]: https://codeforces.com/profile/GyuhoLee "visit"
-[boj]: https://www.acmicpc.net	""visit""
+
+[boj]: https://www.acmicpc.net	"visit"
+
 [shake2019]: https://www.acmicpc.net/category/detail/2041 "visit"
+
 [2019kakao]: https://programmers.co.kr/competitions/145/kakao-internship-test "visit"
+
 [2019kakaoproblem]: https://programmers.co.kr/learn/challenges?tab=all_challenges "visit"
 
