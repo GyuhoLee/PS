@@ -9,14 +9,9 @@
 * 메일 : <gyuho965@gmail.com>  (코드 질문 환영합니다.)
   
 * 아래부터는 각 폴더에 대한 설명입니다.
-<br>
-<br>
-
-
-
+<br><br><br><br>
 --------
-
-
+<br><br>
 ### BOJ
 
 * PS 문제들이 모여있는 [백준사이트][boj]에서 풀이한 문제들을 정리해놓은 폴더입니다. 
@@ -77,13 +72,9 @@
    * 소숫점 자리 출력이나 정수를 한 자리씩 입력 받는 문제에서는 scanf, printf를 사용하기도 합니다.
    
    * dy, dx는 배열에서 상하좌우를 의미합니다.
-
-
-
-
+<br><br><br><br>
 ---------------------
-
-
+<br><br>
 ### Codeforce
 
 * 언급하였듯이 두 개의 ID를 번갈아가며 사용중입니다.
@@ -100,14 +91,9 @@
 >  커밋 메시지는 맞춘 문제수 / 전체 문제수, 등수 / 총 참여 인원 수를 의미합니다.
 
 * 현재는 1900점인 Candidate Master를 목표로 공부하고 있습니다.
-
-
-
-
+<br><br><br><br>
 --------------------
-
-
-
+<br><br>
 ### Note
 
 * 대회에 나가기 위한 Team Note를 작성중입니다.
@@ -118,29 +104,16 @@
 
 
 1. 
-
-  
-
-  
-
-  
-
-
-
-
-
-
-
+<br><br><br><br><br><br><br><br>
 -------------------------
-
-
+<br><br>
 ### Virtual Contest
 
 * 문제가 공개된 대회 및 코딩 테스트에 참여하여 정리해놓은 폴더입니다.
 
 * 실제 기간에 참여하지 못한 대회는 동일한 시간과 환경에서 진행했습니다.
 
-
+<br>
 ##### SHAKE! 2019
 
 >2019년에 진행된  경인지역 6개대학 연합 프로그래밍 경시대회인 SHAKE! 입니다.
@@ -161,7 +134,7 @@
 >
 >첫 가상 대회라 그런지 failed를 많이 낸 것이 아쉬웠습니다.
 
-
+<br>
 #####  2019 Winter Kakao Internship Test
 
 > 2020년 3월 28일 [프로그래머스][2019kakao]에서 진행된 2019년 겨울 Kakao 인턴십 코딩 테스트 실전 모의고사입니다.
@@ -174,7 +147,7 @@
   
 
    
-<!--
+
 [bojid]: https://www.acmicpc.net/user/gyuho965 "visit"
 [cfid1]: https://codeforces.com/profile/gyuho965 "visit"
 [cfid2]: https://codeforces.com/profile/GyuhoLee "visit"
@@ -182,4 +155,4 @@
 [shake2019]: https://www.acmicpc.net/category/detail/2041 "visit"
 [2019kakao]: https://programmers.co.kr/competitions/145/kakao-internship-test "visit"
 [2019kakaoproblem]: https://programmers.co.kr/learn/challenges?tab=all_challenges "visit"
--->
+
