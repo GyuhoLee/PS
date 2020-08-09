@@ -85,7 +85,9 @@
 
 >  <img src="https://user-images.githubusercontent.com/12527673/89731797-ce4e5600-da84-11ea-92e7-0fd5a1cef1a9.png" width="700px" align="left">
 >
+>
 >  폴더의 이름은 Contest의 이름을 나타냅니다.
+>
 >  커밋 메시지는 맞춘 문제수 / 전체 문제수, 등수 / 총 참여 인원 수를 의미합니다.
 
 * 현재는 1900점인 Candidate Master를 목표로 공부하고 있습니다.
