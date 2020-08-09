@@ -1,40 +1,41 @@
 # PS
 
-  * 2018년부터의 PS 공부를 정리한 저장소입니다.
+* 2018년부터의 PS 공부를 정리한 저장소입니다.
   
-  * 백준 아이디 : [gyuho965][bojid]
+* 백준 아이디 : [gyuho965][bojid]
 
-  * 코드포스 아이디 : [gyuho965][cfid1] , [GyuhoLee][cfid2] (두 개를 번갈아가며 사용중입니다.)
+* 코드포스 아이디 : [gyuho965][cfid1] , [GyuhoLee][cfid2] (두 개를 번갈아가며 사용중입니다.)
 
-  * 메일 : <gyuho965@gmail.com>  (코드 질문 환영합니다.)
+* 메일 : <gyuho965@gmail.com>  (코드 질문 환영합니다.)
   
-  * 아래부터는 각 폴더에 대한 설명입니다.
-  
-  
-  
-  
+* 아래부터는 각 폴더에 대한 설명입니다.
+<br>
+<br>
+
+
+
 --------
 
 
 ### BOJ
 
- * PS 문제들이 모여있는 [백준사이트][boj]에서 풀이한 문제들을 정리해놓은 폴더입니다. 
+* PS 문제들이 모여있는 [백준사이트][boj]에서 풀이한 문제들을 정리해놓은 폴더입니다. 
 
- * 각 문제 번호를 1000으로 나누어 정리하였습니다.
+* 각 문제 번호를 1000으로 나누어 정리하였습니다.
 
- * 2020년 8월 9일에 대대적인 폴더 정리를 하여 커밋 메시지가 초기화되었습니다.
+* 2020년 8월 9일에 대대적인 폴더 정리를 하여 커밋 메시지가 초기화되었습니다.
 
- * 주로 C++ 언어를 사용하였습니다.
+* 주로 C++ 언어를 사용하였습니다.
 
- * Big number 문제, 별찍기류의 문제들은 Python3을 사용하기도 했습니다.
+* Big number 문제, 별찍기류의 문제들은 Python3을 사용하기도 했습니다.
 
- * 가끔 Java 코드가 있기도 합니다.
+* 가끔 Java 코드가 있기도 합니다.
 
- * 3년동안 쌓아온 폴더이기에 옛날과 지금의 코드 스타일이 많이 다릅니다.
+* 3년동안 쌓아온 폴더이기에 옛날과 지금의 코드 스타일이 많이 다릅니다.
 
- * 최근의 코드 스타일은 최상단에 id를 통해 확인하실 수 있습니다. 
+* 최근의 코드 스타일은 최상단에 id를 통해 확인하실 수 있습니다. 
 
- * 아래는 제가 쓰는 코드의 기본 템플릿입니다.
+* 아래는 제가 쓰는 코드의 기본 템플릿입니다.
 
    >  ```c++
    >  #include <bits/stdc++.h>
@@ -173,7 +174,7 @@
   
 
    
-
+<!--
 [bojid]: https://www.acmicpc.net/user/gyuho965 "visit"
 [cfid1]: https://codeforces.com/profile/gyuho965 "visit"
 [cfid2]: https://codeforces.com/profile/GyuhoLee "visit"
@@ -181,3 +182,4 @@
 [shake2019]: https://www.acmicpc.net/category/detail/2041 "visit"
 [2019kakao]: https://programmers.co.kr/competitions/145/kakao-internship-test "visit"
 [2019kakaoproblem]: https://programmers.co.kr/learn/challenges?tab=all_challenges "visit"
+-->
