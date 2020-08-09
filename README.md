@@ -83,8 +83,7 @@
   
 * 아래는 Contest의 Commit 예시입니다.
 
->  <img src="https://user-images.githubusercontent.com/12527673/89731797-ce4e5600-da84-11ea-92e7-0fd5a1cef1a9.png" width="700px" align="left">
->
+>  <img src="https://user-images.githubusercontent.com/12527673/89731797-ce4e5600-da84-11ea-92e7-0fd5a1cef1a9.png" width="700px" align="left"><br>
 >
 >  폴더의 이름은 Contest의 이름을 나타냅니다.
 >
