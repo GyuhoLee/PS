@@ -109,9 +109,9 @@
 
 1. Search and Sort
 
-  1. Binary Search
+    1.1 Binary Search
   
-  2. Topology Sort
+    1.2 Topology Sort
   
 2. Shortest Path
 
