@@ -107,13 +107,15 @@
 
 * 목차는 KAIST 더불어민규당 팀의 [팀노트](https://github.com/koosaga/DeobureoMinkyuParty)를 참고했습니다.
 
-1. Search and Sort
+<br>
+
+#### 1. Search and Sort
 
     1.1 Binary Search
     
     1.2 Topology Sort
     
-2. Shortest Path
+#### 2. Shortest Path
     
     2.1 *Dijkstra*
     
@@ -121,7 +123,7 @@
     
     2.3 *Bellman-Ford*
     
-3. Math
+#### 3. Math
     
     3.1 GCD
     
@@ -149,7 +151,7 @@
     
     3.13 ~~Highly Composite Numbers, Large Prime~~
     
-4. Flows, Matching
+#### 4. Flows, Matching
     
     4.1 ~~Ford-Fulkerson~~
     
@@ -167,7 +169,7 @@
     
     4.8 ~~Blossom Algorithm~~
     
-5. Graph
+#### 5. Graph
     
     5.1 ~~SCC~~
     
@@ -187,7 +189,7 @@
     
     5.9 ~~Vising's Theorem~~
     
-6. String
+#### 6. String
     
     6.1 *KMP*
     
@@ -205,7 +207,7 @@
     
     6.8 ~~Circular LCS~~
     
-7. Geometry
+#### 7. Geometry
     
     7.1 *CCW*
     
@@ -225,7 +227,7 @@
     
     7.9 ~~KD Tree~~
     
-8. Data Structure
+#### 8. Data Structure
     
     8.1 *Union Find*
     
