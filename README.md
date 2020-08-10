@@ -111,17 +111,17 @@
 
 #### 1. Search and Sort
 
-    1.1 Binary Search
+  1.1 Binary Search
     
-    1.2 Topology Sort
+  1.2 Topology Sort
     
 #### 2. Shortest Path
     
-    2.1 *Dijkstra*
+  2.1 *Dijkstra*
     
-    2.2 Floyd-Warshall
+  2.2 Floyd-Warshall
     
-    2.3 *Bellman-Ford*
+  2.3 *Bellman-Ford*
     
 #### 3. Math
     
