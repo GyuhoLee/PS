@@ -16,7 +16,7 @@ using namespace std;
 int dy[4] = { -1, 1, 0, 0 };
 int dx[4] = { 0, 0, 1, -1 };
 
-int V, E, s, e;	//V : Node의 수, E : Edge의 수, S : 시작점
+int V, E, S;	//V : Node의 수, E : Edge의 수, S : 시작점
 int u, v, w;	//u -> v의 가중치 w
 vector<pair<int, int>> arr[SIZE];	//	arr[i] = first까지 second의 가중치
 int d[SIZE]; //시작점에서의 각 idx node 까지의 거리. 처음에 INF값으로 초기화 필요
@@ -24,7 +24,7 @@ int d[SIZE]; //시작점에서의 각 idx node 까지의 거리. 처음에 INF값으로 초기화 필�
 void dijkstra()
 {
 	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-	pq.push({ 0, s });	// S부터 시작
+	pq.push({ 0, S });	// S부터 시작
 	while (!pq.empty())
 	{
 		int distance = pq.top().first;
