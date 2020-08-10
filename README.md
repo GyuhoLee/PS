@@ -109,25 +109,25 @@
 
 1. Search and Sort
 
-  1.1 Binary Search
+  1. Binary Search
   
-  1.2 Topology Sort
+  2. Topology Sort
   
 2. Shortest Path
 
-  2.1 `Dijkstra`
+  2.1 *Dijkstra*
   
   2.2 Floyd-Warshall
   
-  2.3 `Bellman-Ford`
+  2.3 *Bellman-Ford*
   
 3. Math
 
   3.1 GCD
   
-  3.2 `Euclidean`
+  3.2 *Euclidean*
   
-  3.3 `Sieve of Eratosthenes`
+  3.3 *Sieve of Eratosthenes*
   
   3.4 ~~FFT/NTT~~
   
@@ -189,13 +189,13 @@
   
 6. String
 
-  6.1 `KMP`
+  6.1 *KMP*
   
   6.2 ~~tries~~
   
-  6.3 `Rabin-Karp`
+  6.3 *Rabin-Karp*
   
-  6.4 `Suffix Array`
+  6.4 *Suffix Array*
   
   6.5 ~~Manacher~~
   
@@ -207,9 +207,9 @@
   
 7. Geometry
 
-  7.1 `CCW`
+  7.1 *CCW*
   
-  7.2 `Flane Sweeping`
+  7.2 *Flane Sweeping*
   
   7.3 ~~Sphere~~
   
@@ -227,13 +227,13 @@
   
 8. Data Structure
 
-  8.1 `Union Find`
+  8.1 *Union Find*
 
   8.2 ~~Order statistic tree~~
   
   8.3 ~~Fenwick Tree~~
   
-  8.4 `Segment Tree with Lazy Propagation`
+  8.4 *Segment Tree with Lazy Propagation*
   
   8.5 ~~Minium Spanning Tree~~
   
