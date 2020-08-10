@@ -37,7 +37,7 @@ void dijkstra()
 			if (d[iter.first] > d[node] + iter.second)
 			{
 				d[iter.first] = d[node] + iter.second;
-				pq.push(make_pair(d[iter.first], iter.first));
+				pq.push({ d[iter.first], iter.first });
 			}
 		}
 	} // 끝나고도 d[i]가 INF이면 도달할 수 없음.
