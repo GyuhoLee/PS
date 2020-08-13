@@ -171,7 +171,7 @@
 
    3.1 Euclidean
 
-   3.2 *Sieve of Eratosthenes*
+   3.2 Sieve of Eratosthenes
 
    3.3 ~~FFT/NTT~~
 
