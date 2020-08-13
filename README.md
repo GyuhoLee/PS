@@ -164,7 +164,7 @@
     
    2.2 Floyd-Warshall
     
-   2.3 *Bellman-Ford*
+   2.3 Bellman-Ford
     
 
 #### 3. Math
