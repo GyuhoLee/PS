@@ -169,31 +169,29 @@
 
 #### 3. Math
 
-   3.1 GCD
+   3.1 Euclidean
 
-   3.2 *Euclidean*
+   3.2 *Sieve of Eratosthenes*
 
-   3.3 *Sieve of Eratosthenes*
+   3.3 ~~FFT/NTT~~
 
-   3.4 ~~FFT/NTT~~
+   3.4 ~~NTT Polynomial Division~~
 
-   3.5 ~~NTT Polynomial Division~~
+   3.5 ~~Kitamasa~~
 
-   3.6 ~~Kitamasa~~
+   3.6 ~~Gaussian Elimination~~
 
-   3.7 ~~Gaussian Elimination~~
+   3.7 ~~Simplex Algorithm~~
 
-   3.8 ~~Simplex Algorithm~~
+   3.8 ~~Pentagonal Number Theorem~~
 
-   3.9 ~~Pentagonal Number Theorem~~
+   3.9 ~~De Bruijn Sequence~~
 
-   3.10 ~~De Bruijn Sequence~~
+   3.10 ~~Discrete Kth root~~
 
-   3.11 ~~Discrete Kth root~~
+   3.11 ~~Miller-Ribin Test + Pollard Rho Factorization~~
 
-   3.12 ~~Miller-Ribin Test + Pollard Rho Factorization~~
-
-   3.13 ~~Highly Composite Numbers, Large Prime~~
+   3.12 ~~Highly Composite Numbers, Large Prime~~
 
 #### 4. Flows, Matching
 
