@@ -26,7 +26,7 @@ bool bellman_ford()
 {
 	fill(d, d + V + 1, INF);
 	d[S] = 0;
-	FUP(repeat, 1, V - 1)
+	FUP(repeat, 1, V)
 	{
 		FUP(i, 1, V)
 		{
@@ -38,7 +38,7 @@ bool bellman_ford()
 				if (d[next] > d[i] + dist)
 				{
 					d[next] = d[i] + dist;
-					if (repeat == V - 1) return false;
+					if (repeat == V) return false;
 				}
 			}
 		}
