@@ -24,7 +24,7 @@ int d[SIZE]; //시작점에서의 각 idx node 까지의 거리. 처음에 INF값으로 초기화 필�
 
 bool bellman_ford()
 {
-	fill(d, d + V, INF);
+	fill(d, d + V + 1, INF);
 	d[S] = 0;
 	FUP(repeat, 1, V - 1)
 	{
