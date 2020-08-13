@@ -19,8 +19,8 @@ int dx[4] = { 0, 0, 1, -1 };
 
 int V, E, S;	//V : Node의 수, E : Edge의 수, S : 시작점
 int u, v, w;	//u -> v의 가중치 w
-vector<pair<int, int>> arr[SIZE];	//	arr[i] = first까지 second의 가중치
-int d[SIZE]; //시작점에서의 각 idx node 까지의 거리. 처음에 INF값으로 초기화 필요
+vector<pair<int, ll>> arr[SIZE];	//	arr[i] = first까지 second의 가중치
+ll d[SIZE]; //시작점에서의 각 idx node 까지의 거리. 처음에 INF값으로 초기화 필요
 
 bool bellman_ford()
 {
@@ -34,7 +34,7 @@ bool bellman_ford()
 			for (auto p : arr[i])
 			{
 				int next = p.first;
-				int dist = p.second;
+				ll dist = p.second;
 				if (d[next] > d[i] + dist)
 				{
 					d[next] = d[i] + dist;
