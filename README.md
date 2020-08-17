@@ -251,7 +251,7 @@
 
 #### 7. Geometry
 
-   7.1 *CCW*
+   7.1 CCW
 
    7.2 *Flane Sweeping*
 
