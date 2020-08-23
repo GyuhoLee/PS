@@ -1,0 +1,5 @@
+n = input()
+n2 = input()
+x = int(n, 2)
+x2 = int(n2, 2)
+print(bin(x * x2)[2:])
