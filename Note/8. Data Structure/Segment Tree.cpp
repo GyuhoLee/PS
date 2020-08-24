@@ -14,30 +14,43 @@ using namespace std;
 #define ENDL cout << '\n'
 int dy[4] = { -1, 1, 0, 0 };
 int dx[4] = { 0, 0, 1, -1 };
+#define SIZE 10000
 
-ll N, M, K, H = 1;
-ll a, b, c;
-ll Tree[2097153];
+int N;
+ll arr[SIZE], tree[SIZE * 4];
 
-void change(ll idx, ll num)
+ll init(int idx, int s, int e)
 {
-	if (idx == 0) return;
-	Tree[idx] += num;
-	change(idx / 2, num);
+	int mid = (s + e) / 2;
+	if (s == e) return tree[idx] = arr[s];
+	else return tree[idx] = init(idx * 2 + 1, s, mid) + init(index * 2 + 2, mid + 1, e);
 }
 
-ll solve(int s, int e)
+
+//sum(1, 1, N, 왼쪽, 오른쪽);
+ll sum(int idx, int s, int e, int l, int r)
 {
-	ll ret = 0;
-	while (s <= e)
+	//[left, right] 범위가 [start, end]와 전혀 겹치지 않는 경우
+	if (s > r || e < l) return 0;
+	//[start, end] 범위가 [left, right]에 완전히 속해 있는 경우
+	else if (s >= l && e <= r) return tree[idx];
+	mid = (s + e) / 2;
+	return sum(2 * idx + 1, s, mid, l, r) + sum(2 * idx + 2, mid + 1, e, l, r);
+}
+
+//update(바뀐 인덱스, 바뀐 값(차이), 1, 1, N);
+void update(int change, ll num, int idx, int s, int e)
+{
+	if (change < start || change > end) return;
+	node[idx] += num;
+	if (s != e)
 	{
-		if (s % 2) ret += Tree[s];
-		if (!(e % 2)) ret += Tree[e];
-		s = (s + 1) / 2;
-		e = (e - 1) / 2;
+		int mid = (s + e) / 2;
+		update(changed_index, diff, idx * 2 + 1, s, mid);
+		update(changed_index, diff, idx * 2 + 1, mid + 1, e);
 	}
-	return ret;
 }
+
 
 int main()
 {
@@ -45,29 +58,9 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 
-	MS(Tree, 0);
-	cin >> N >> M >> K;
-	M += K;
-
-	while (H < N) { H *= 2; }
-	FUP(i, 0, N - 1) cin >> Tree[H + i];
-	FDOWN(i, H - 1, 1) Tree[i] = Tree[i * 2] + Tree[i * 2 + 1];
-
-	while (M--)
-	{
-		cin >> a >> b >> c;
-		if (a == 1)
-		{
-			ll idx = H + b - 1;
-			ll num = c - Tree[idx];
-			Tree[idx] = c;
-			change(idx / 2, num);
-		}
-		else
-		{
-			cout << solve(H + b - 1, H + c - 1) << '\n';
-		}
-	}
+	CIN(N);
+	FUP(i, 1, N) CIN(arr[i]);
+	init(1, 1, N);
 
 
 	return 0;
