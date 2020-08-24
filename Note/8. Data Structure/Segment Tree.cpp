@@ -46,7 +46,7 @@ void update(int change, ll diff, int idx, int s, int e)
 	if (s != e)
 	{
 		int mid = (s + e) / 2;
-		update(change, diff, idx * 2 + 1, s, mid);
+		update(change, diff, idx * 2, s, mid);
 		update(change, diff, idx * 2 + 1, mid + 1, e);
 	}
 }
