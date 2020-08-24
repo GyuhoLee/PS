@@ -39,10 +39,10 @@ ll sum(int idx, int s, int e, int l, int r)
 }
 
 //update(¹Ù²ï ÀÎµ¦½º, ¹Ù²ï °ª(Â÷ÀÌ), 1, 1, N);
-void update(int change, ll num, int idx, int s, int e)
+void update(int change, ll diff, int idx, int s, int e)
 {
 	if (change < start || change > end) return;
-	node[idx] += num;
+	node[idx] += diff;
 	if (s != e)
 	{
 		int mid = (s + e) / 2;
