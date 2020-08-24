@@ -42,7 +42,7 @@ ll sum(int idx, int s, int e, int l, int r)
 void update(int change, ll diff, int idx, int s, int e)
 {
 	if (change < s || change > e) return;
-	arr[idx] += diff;
+	tree[idx] += diff;
 	if (s != e)
 	{
 		int mid = (s + e) / 2;
