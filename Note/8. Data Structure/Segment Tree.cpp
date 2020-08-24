@@ -23,7 +23,7 @@ ll init(int idx, int s, int e)
 {
 	int mid = (s + e) / 2;
 	if (s == e) return tree[idx] = arr[s];
-	else return tree[idx] = init(idx * 2 + 1, s, mid) + init(idx * 2 + 2, mid + 1, e);
+	else return tree[idx] = init(idx * 2, s, mid) + init(idx * 2 + 1, mid + 1, e);
 }
 
 
@@ -35,7 +35,7 @@ ll sum(int idx, int s, int e, int l, int r)
 	//[start, end] 범위가 [left, right]에 완전히 속해 있는 경우
 	else if (s >= l && e <= r) return tree[idx];
 	ll mid = (s + e) / 2;
-	return sum(2 * idx + 1, s, mid, l, r) + sum(2 * idx + 2, mid + 1, e, l, r);
+	return sum(2 * idx, s, mid, l, r) + sum(2 * idx + 1, mid + 1, e, l, r);
 }
 
 //update(바뀐 인덱스, 바뀐 값(차이), 1, 1, N);
