@@ -1,13 +1,10 @@
 # PS
 
 * 2018년부터의 PS 공부를 정리한 저장소입니다.
-  
 * 백준 아이디 : [gyuho965][bojid]
-
 * 코드포스 아이디 : [gyuho965][cfid1] , [GyuhoLee][cfid2] (두 개를 번갈아가며 사용중입니다.)
-
+* 앳코더 아이디 : [gyuho965][acid]
 * 메일 : <gyuho965@gmail.com>  (코드 질문 환영합니다.)
-  
 * 아래부터는 각 폴더에 대한 설명입니다.
 
 <br><br>
@@ -306,6 +303,8 @@
 [cfid1]: https://codeforces.com/profile/gyuho965 "visit"
 
 [cfid2]: https://codeforces.com/profile/GyuhoLee "visit"
+
+[acid]: https://atcoder.jp/users/gyuho965 "visit"
 
 [boj]: https://www.acmicpc.net	"visit"
 
