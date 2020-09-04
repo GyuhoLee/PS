@@ -274,7 +274,7 @@
 
    8.3 ~~Fenwick Tree~~
 
-   8.4 *Segment Tree with Lazy Propagation*
+   8.4 Segment Tree with Lazy Propagation
 
    8.5 ~~Minium Spanning Tree~~
 
