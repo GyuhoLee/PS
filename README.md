@@ -83,7 +83,7 @@
 * 아래는 Contest의 Commit 예시입니다.
 
 >  <img src="https://user-images.githubusercontent.com/12527673/89731797-ce4e5600-da84-11ea-92e7-0fd5a1cef1a9.png" width="700px" align="left"> <br>
->
+>  
 >  <br>
 >
 >  폴더의 이름은 Contest의 이름을 나타냅니다.
@@ -131,6 +131,17 @@
 > 500점 만점을 받아 참여자 3025명 중 16등을 하였습니다. (참가자 \#120980입니다.)
 >
 > 문제는 [여기][2019kakaoproblem]에서 하단 "2019 카카오 개발자 겨울 인턴십" 필터 설정을 통해 볼 수 있습니다.
+>
+
+#### 2020 프로그래머스 월간 코드 챌린지 시즌1 9월
+
+> 2020년 진행된 프로그래머스 월간 코드 챌린지 시즌1의 9월 미션입니다.
+>
+> 링크는 [이곳][monthly] 입니다.
+>
+> <img src="https://github.com/GyuhoLee/PS/issues/2#issue-698949273" align="left"><br>
+>
+> 4944명의 참가자중 28위에 랭크되었습니다.
 >
 
 
@@ -314,3 +325,4 @@
 
 [2019kakaoproblem]: https://programmers.co.kr/learn/challenges?tab=all_challenges "visit"
 
+[monthly]: https://programmers.co.kr/competitions/417/monthly-code-challenge-s1?utm_source=programmers&utm_medium=learn_competition417&utm_campaign=competition417 "visit"
