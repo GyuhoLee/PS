@@ -141,7 +141,7 @@
 >
 >  링크는 [이곳][monthly] 입니다.
 >
->  <img src="https://user-images.githubusercontent.com/12527673/92882588-0281b180-f44b-11ea-8e85-c1e94e248f53.png" align="left"> <br>
+>  <img src="https://user-images.githubusercontent.com/12527673/92882588-0281b180-f44b-11ea-8e85-c1e94e248f53.png" align="left"> <br> <br>
 >
 >  <br>
 >
