@@ -137,15 +137,15 @@
 
 ##### 2020 프로그래머스 월간 코드 챌린지 시즌1 9월
 
-> 2020년 진행된 프로그래머스 월간 코드 챌린지 시즌1의 9월 미션입니다.
+>  2020년 진행된 프로그래머스 월간 코드 챌린지 시즌1의 9월 미션입니다.
 >
-> 링크는 [이곳][monthly] 입니다.
+>  링크는 [이곳][monthly] 입니다.
 >
-> <img src="https://user-images.githubusercontent.com/12527673/92882588-0281b180-f44b-11ea-8e85-c1e94e248f53.png" align="left">  
+>  <img src="https://user-images.githubusercontent.com/12527673/92882588-0281b180-f44b-11ea-8e85-c1e94e248f53.png" align="left"> <br>
 >
-> <br>
+>  <br>
 >
-> 4944명의 참가자중 28위에 랭크되었습니다.
+>  4944명의 참가자중 28위에 랭크되었습니다.
 >
 
 
