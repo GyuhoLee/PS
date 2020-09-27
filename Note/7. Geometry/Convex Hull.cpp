@@ -41,6 +41,7 @@ ll ccw(const Point& A, const Point& B, const Point& C)
 
 int N, x, y;
 Point arr[MAX];
+stack<int> S;
 
 void input()
 {
@@ -64,7 +65,6 @@ void convex_hull()
 
     sort(arr + 1, arr + N, comp); // 반시계 방향으로 다시 정렬
 
-    stack<int> S;
     S.push(0);
     S.push(1);
     int next = 2;
