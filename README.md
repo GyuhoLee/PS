@@ -271,7 +271,7 @@
 
    7.4 ~~Smallest Enclosing Circle~~
 
-   7.5 ~~Convex Hull~~
+   7.5 Convex Hull
 
    7.6 ~~3D Convex Hull~~
 
