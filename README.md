@@ -283,7 +283,7 @@
 
 #### 8. Data Structure
 
-   8.1 *Union Find*
+   8.1 Union Find
 
    8.2 ~~Order statistic tree~~
 
