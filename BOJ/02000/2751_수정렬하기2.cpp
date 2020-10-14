@@ -1,37 +1,17 @@
-#include<iostream>
-#define MAX 1000000    // 데이터 개수의 MAX 범위
-#define qSWAP(x, y) { int t = x; x = y; y = t; }  // 간단한 SWAP 함수
-int N, arr[MAX]; // 데이터 개수와 저장할 배열
- 
-void qSort(int *array, int left, int right) {
-    int mLeft = left, mRight = right;
-    int pivot = array[(left + right) / 2];
-    
-    while(mLeft <= mRight) {
-        while(pivot > array[mLeft]) mLeft++;
-        while(pivot < array[mRight]) mRight--;
-        
-        if(mLeft <= mRight) {
-            qSWAP(array[mLeft], array[mRight]);
-            mLeft++, mRight--;
-        }
-    }
- 
-    if(left < mRight) qSort(arr, left, mRight);
-    if(mLeft < right) qSort(arr, mLeft, right);
-}
- 
-int main() {
-    int idx;
-    scanf("%d", &N);
-    for(idx = 0; idx < N; idx++) {
-        scanf("%d", &arr[idx]);
-    }
-    
-    qSort(arr, 0, N - 1);
-    for(idx = 0; idx < N; idx++) {
-        printf("%d ", arr[idx]);
-    }
+#include <bits/stdc++.h>
+using namespace std;
+int N, arr[1000000];
+
+int main() 
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    cin >> N;
+    for (int i = 0; i < N; i++) cin >> arr[i];
+    sort(arr, arr + N);
+    for (int i = 0; i < N; i++) cout << arr[i] << '\n';
  
     return 0; 
 }
