@@ -12,7 +12,7 @@
 ### BOJ
 
 
-[![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=kinetic27)](https://solved.ac/gyuho965)
+[![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=gyuho965)](https://solved.ac/gyuho965)
 
 
 * PS 문제들이 모여있는 [백준사이트][boj]에서 풀이한 문제들을 정리해놓은 폴더입니다. 
