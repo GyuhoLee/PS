@@ -258,23 +258,25 @@
 
 #### 5. Graph
 
-   5.1 ~~SCC~~
+   5.1 LCA
 
-   5.2 ~~BCC~~
+   5.2 ~~SCC~~
 
-   5.3 ~~2-SAT~~
+   5.3 ~~BCC~~
 
-   5.4 ~~Splay Tree + Link-Cut Tree~~
+   5.4 ~~2-SAT~~
 
-   5.5 ~~Offline Dynamic MST~~
+   5.5 ~~Splay Tree + Link-Cut Tree~~
 
-   5.6 ~~Dominator Tree~~
+   5.6 ~~Offline Dynamic MST~~
 
-   5.7 ~~Global Min-Cut~~
+   5.7 ~~Dominator Tree~~
 
-   5.8 ~~Edmond's Directed MST~~
+   5.8 ~~Global Min-Cut~~
 
-   5.9 ~~Vising's Theorem~~
+   5.9 ~~Edmond's Directed MST~~
+
+   5.10 ~~Vising's Theorem~~
 
 #### 6. String
 
