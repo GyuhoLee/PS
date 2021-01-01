@@ -1,142 +1,71 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, 1, -1 };
 
-int N;
-int arr[9][50];
-int pmt[8];
-int answer = 0;
-
-int idx = 0;
-int score = 0;
-int out = 0;
-int base[3] = { 0, 0, 0 };
-
-void input();
-void solve();
-void bat(int num);
+int N, scoring[51][9], ans = 0, base[3];
+vector<int> permut = { 1, 2, 3, 4, 5, 6, 7, 8 };
 
 int main()
 {
-	input();
-	solve();
-	printf("%d", answer);
-}
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
 
-void input()
-{
-	scanf_s("%d", &N);
-	for (int i = 0; i < N; i++)
+	CIN(N);
+	FUP(i, 1, N)
 	{
-		for (int j = 0; j < 9; j++)
+		FUP(j, 0, 8)
 		{
-			scanf_s("%d", &arr[j][i]);
+			CIN(scoring[i][j]);
 		}
 	}
-	for (int i = 0; i < 8; i++)
-		pmt[i] = i + 1;
-}
-
-void solve()
-{
-	do {
-		score = 0;
-		idx = 0;
-		for (int i = 0; i < N; i++)
+	do
+	{
+		int score = 0;
+		int idx = -1;
+		FUP(i, 1, N)
 		{
-			out = 0;
-			base[0] = 0;
-			base[1] = 0;
-			base[2] = 0;
+			int out = 0, batter, bat;
+			base[0] = base[1] = base[2] = 0;
 			while (out < 3)
 			{
-				if (idx < 3) bat(arr[pmt[idx]][i]);
-				else if (idx == 3) bat(arr[0][i]);
-				else bat(arr[pmt[idx - 1]][i]);
 				idx = (idx + 1) % 9;
+				if (idx < 3) batter = permut[idx];
+				else if (idx == 3) batter = 0;
+				else batter = permut[idx - 1];
+				bat = scoring[i][batter];
+				if (bat == 0)
+				{
+					out++;
+					continue;
+				}
+				FDOWN(i, 2, 0)
+				{
+					if (!base[i]) continue;
+					if (i + bat > 2) score++;
+					else(base[i + bat] = 1);
+					base[i] = 0;
+				}
+				if (bat == 4) score++;
+				else base[bat - 1] = 1;
 			}
 		}
-		answer = max(answer, score);
-	} while (next_permutation(pmt, pmt + 8));
-}
+		ans = max(ans, score);
+	} while (next_permutation(ALL(permut)));
+	COUT(ans);
 
-void bat(int num)
-{
-	switch (num)
-	{
-	case 0:
-		out++;
-		break;
-	case 1:
-		if (base[2])
-		{
-			score++;
-			base[2] = 0;
-		}
-		if (base[1])
-		{
-			base[2] = 1;
-			base[1] = 0;
-		}
-		if (base[0])
-		{
-			base[1] = 1;
-		}
-		base[0] = 1;
-		break;
-	case 2:
-		if (base[2])
-		{
-			score++;
-			base[2] = 0;
-		}
-		if (base[1])
-		{
-			score++;
-			base[1] = 0;
-		}
-		if (base[0])
-		{
-			base[2] = 1;
-			base[0] = 0;
-		}
-		base[1] = 1;
-		break;
-	case 3:
-		if (base[2])
-		{
-			score++;
-			base[2] = 0;
-		}
-		if (base[1])
-		{
-			score++;
-			base[1] = 0;
-		}
-		if (base[0])
-		{
-			score++;
-			base[0] = 0;
-		}
-		base[2] = 1;
-		break;
-	case 4:
-		if (base[2])
-		{
-			score++;
-			base[2] = 0;
-		}
-		if (base[1])
-		{
-			score++;
-			base[1] = 0;
-		}
-		if (base[0])
-		{
-			score++;
-			base[0] = 0;
-		}
-		score++;
-		break;
-	}
+	return 0;
 }
