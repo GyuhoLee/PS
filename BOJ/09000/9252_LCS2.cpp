@@ -1,30 +1,59 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, 1, -1 };
 
-string s1, s2;
-int dp[1001][1001], i, j;
-vector<char> answer;
+int N, M;
+string x, y;
+int dp[1001][1001];
 
-int main() {
-	cin >> s1 >> s2;
-    for (i = 1;  i <= s1.size(); i++)
-        for (j = 1; j <= s2.size(); j++)
-            dp[i][j] = max({ dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1] + (s1[i - 1] == s2[j - 1])});
-    cout << dp[i - 1][j - 1] << '\n';
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
 
-	i = s1.size();
-	j = s2.size();
-
-	while (i >= 1 && j >= 1) {
-		if (dp[i][j] == dp[i - 1][j]) i--;
-		else if (dp[i][j] == dp[i][j - 1]) j--;
-		else 
+	CIN2(x, y);
+	N = x.size(), M = y.size();
+	FUP(i, 1, N)
+	{
+		FUP(j, 1, M)
 		{
-			answer.push_back(s1[i - 1]);
-			i--; j--;
+			dp[i][j] = max({ dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1] + (x[i - 1] == y[j - 1]) });
 		}
 	}
-	for (auto iter = answer.rbegin(); iter != answer.rend(); iter++) cout << *iter;
+	int i = N, j = M;
+	stack<char> answer;
+	while (i >= 1 && j >= 1)
+	{
+		if (dp[i][j] == dp[i - 1][j]) i--;
+		else if (dp[i][j] == dp[i][j - 1]) j--;
+		else
+		{
+			answer.push(x[i - 1]);
+			i--, j--;
+		}
+	}
+	COUT(dp[N][M]);
+	ENDL;
+	while (!answer.empty())
+	{
+		COUT(answer.top());
+		answer.pop();
+	}
 
-    return 0;
+
+	return 0;
 }
