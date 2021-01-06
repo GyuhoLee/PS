@@ -1,130 +1,89 @@
-#include <iostream>
-#include <algorithm>
-#include <cmath>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, 1, -1 };
 
-int N, M, D;
-int arr[16][16];
-int enemy[16][16];
-int answer = 0;
+int N, M, D, ans = 0;
+vector<vector<int>> state;
+vector<int> permut;
 
-struct node {
-	int a = 1;
-	int b = 2;
-	int c = 2;
-
-	bool next()
+void solve(vector<vector<int>> arr, vector<int> permut)
+{
+	int cnt = 0;
+	set<pair<int, int>> S;
+	vector<int> archer;
+	FUP(i, 0, M - 1)
 	{
-		if (c != M)
-		{
-			c++;
-			return true;
-		}
-		if (b != M - 1)
-		{
-			b++;
-			c = b + 1;
-			return true;
-		}
-		if (a != M - 2)
-		{
-			a++;
-			b = a + 1;
-			c = a + 2;
-			return true;
-		}
-		return false;
+		if (permut[i]) archer.push_back(i);
 	}
-};
-
-
-
-struct point {
-	int x;
-	int y;
-	point(int dy, int dx) :y(dy), x(dx) {}
-};
-
-queue<point> q;
-node archur;
-
-void input();
-void solve();
-void check(int dy, int dx);
+	FUP(row, 0, N - 1)
+	{
+		for (int col : archer)
+		{
+			FUP(d, 0, D - 1)
+			{
+				bool ok = false;
+				FUP(j, -d, d)
+				{
+					int i = d - abs(j);
+					if (row + i >= N || col + j >= M || col + j < 0) continue;
+					if (arr[row + i][col + j])
+					{
+						S.insert({ row + i, col + j });
+						ok = true;
+						break;
+					}
+				}
+				if (ok) break;
+			}
+		}
+		for (auto p : S)
+		{
+			arr[p.first][p.second] = 0;
+			cnt++;
+		}
+		S.clear();
+	}
+	ans = max(ans, cnt);
+}
 
 int main()
 {
-	input();
-	solve();
-	printf("%d", answer);
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
+	CIN3(N, M, D);
+	state.resize(N, vector<int>(M));
+	FDOWN(i, N - 1, 0)
+	{
+		FUP(j, 0, M - 1)
+		{
+			CIN(state[i][j]);
+		}
+	}
+	permut.resize(M, 0);
+	FDOWN(i, M - 1, M - 3)
+	{
+		permut[i] = 1;
+	}
+	do
+	{
+		solve(state, permut);
+	} while (next_permutation(ALL(permut)));
+	COUT(ans);
 
 	return 0;
-}
-
-void input()
-{
-	scanf_s("%d %d %d", &N, &M, &D);
-	for (int i = 1; i <= N; i++)
-	{
-		for (int j = 1; j <= M; j++)
-		{
-			scanf_s("%d", &arr[i][j]);
-		}
-	}
-}
-
-void solve()
-{
-	while (archur.next())
-	{
-		int height = N + 1;
-		int kill = 0;
-		for (int i = 1; i <= N; i++)
-		{
-			for (int j = 1; j <= M; j++)
-			{
-				enemy[i][j] = arr[i][j];
-			}
-		}
-		while (height > 1)
-		{
-			check(height, archur.a);
-			check(height, archur.b);
-			check(height, archur.c);
-			height--;
-			while (!q.empty())
-			{
-				point temp = q.front();
-				q.pop();
-				if (enemy[temp.y][temp.x])
-				{
-					enemy[temp.y][temp.x] = 0;
-					kill++;
-				}
-			}
-		}
-		answer = max(kill, answer);
-	}
-}
-
-void check(int dy, int dx)
-{
-	for (int i = 1; i <= D; i++)
-	{
-		bool isFind = false;
-		for (int j = -1 * i + 1; j < i; j++)
-		{
-			int sx = dx + j;
-			int sy = dy - (i - abs(j));
-			if (sx < 1 || sx > M || sy < 1) continue;
-			if (enemy[sy][sx])
-			{
-				isFind = true;
-				q.push(point(sy, sx));
-				break;
-			}
-		}
-		if (isFind) break;
-	}
 }
