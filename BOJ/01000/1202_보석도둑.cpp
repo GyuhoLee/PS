@@ -15,8 +15,10 @@ using namespace std;
 int dy[4] = { -1, 1, 0, 0 };
 int dx[4] = { 0, 0, 1, -1 };
 
-ll N, K, ans = 0, pack[300000];
-pair<ll, ll> jewelry[300000];
+int N, M, K, bag[300000];
+ll ans = 0;
+pair<int, int> jewelry[300000];
+
 
 int main()
 {
@@ -26,14 +28,14 @@ int main()
 
 	CIN2(N, K);
 	FUP(i, 0, N - 1) CIN2(jewelry[i].first, jewelry[i].second);
-	FUP(i, 0, K - 1) CIN(pack[i]);
+	FUP(i, 0, K - 1) CIN(bag[i]);
 	sort(jewelry, jewelry + N);
-	sort(pack, pack + K);
+	sort(bag, bag + K);
 	int idx = 0;
-	priority_queue<ll> pq;
+	priority_queue<int> pq;
 	FUP(i, 0, K - 1)
 	{
-		while (idx < N && jewelry[idx].first <= pack[i])
+		while (idx < N && jewelry[idx].first <= bag[i])
 		{
 			pq.push(jewelry[idx++].second);
 		}
@@ -44,7 +46,6 @@ int main()
 		}
 	}
 	COUT(ans);
-
 
 	return 0;
 }
