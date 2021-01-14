@@ -5,7 +5,6 @@ using namespace std;
 int G, P;
 int parent[100001];
 int answer = 0;
-bool finish = false;
 
 int find(int num)
 {
@@ -34,7 +33,7 @@ int main()
 		int temp;
 		cin >> temp;
 		int docking = find(temp);
-		if (docking != 0)
+		if (docking)
 		{
 			merge(docking, docking - 1);
 			answer++;
