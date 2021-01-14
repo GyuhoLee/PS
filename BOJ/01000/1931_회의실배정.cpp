@@ -1,41 +1,42 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, 1, -1 };
 
-int N;
+int N, ans = 0;
 pair<int, int> arr[100000];
-int d[100000];
-
-void input();
-int solve();
 
 int main()
 {
-	input();
-	printf("%d", solve());
-	return 0;
-}
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
 
-void input()
-{
-	scanf_s("%d", &N);
-	for (int i = 0; i < N; i++)
-		scanf_s("%d %d", &arr[i].second, &arr[i].first);
-	sort(arr, arr + N );
-}
-
-
-int solve()
-{
-	int answer = 0;
+	CIN(N);
+	FUP(i, 0, N - 1) CIN2(arr[i].second, arr[i].first);
+	sort(arr, arr + N);
 	int time = 0;
-	for (int i = 0; i < N; i++)
+	FUP(i, 0, N - 1)
 	{
-		if (arr[i].second >= time)
+		if (time <= arr[i].second)
 		{
 			time = arr[i].first;
-			answer++;
+			ans++;
 		}
 	}
-	return answer;
+	COUT(ans);
+
+	return 0;
 }
