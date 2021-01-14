@@ -1,38 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-int N;
-int arr[500][500];
-int dp[500][500];
-int answer = 1;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
 int dy[4] = { -1, 1, 0, 0 };
-int dx[4] = { 0, 0, -1, 1 };
+int dx[4] = { 0, 0, 1, -1 };
 
-void input()
-{
-	cin >> N;
-	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < N; j++)
-		{
-			cin >> arr[i][j];
-			dp[i][j] = 0;
-		}
-	}
-}
+int N, arr[501][501], dp[501][501], K = 1;
 
-int DFS(int y, int x)
+void DFS(int y, int x)
 {
-	if (dp[y][x]) return dp[y][x];
 	dp[y][x] = 1;
-	for (int i = 0; i < 4; i++)
+	FUP(i, 0, 3)
 	{
 		int ny = y + dy[i];
 		int nx = x + dx[i];
-		if (ny < 0 || nx < 0 || ny >= N || nx >= N || arr[y][x] >= arr[ny][nx]) continue;
-		dp[y][x] = max(dp[y][x], DFS(ny, nx) + 1);;
+		if (ny < 1 || nx < 1 || ny > N || nx > N) continue;
+		if (arr[ny][nx] <= arr[y][x]) continue;
+		if (dp[ny][nx] == 0) DFS(ny, nx);
+		dp[y][x] = max(dp[y][x], dp[ny][nx] + 1);
 	}
-	return dp[y][x];
+	K = max(K, dp[y][x]);
 }
 
 int main()
@@ -41,15 +38,27 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 
-	input();
-	for (int i = 0; i < N; i++)
+	MS(dp, 0);
+	CIN(N);
+	FUP(i, 1, N)
 	{
-		for (int j = 0; j < N; j++)
+		FUP(j, 1, N)
 		{
-			answer= max(answer, DFS(i, j));
+			CIN(arr[i][j]);
 		}
 	}
-	cout << answer;
+
+	FUP(i, 1, N)
+	{
+		FUP(j, 1, N)
+		{
+			if (dp[i][j] == 0)
+			{
+				DFS(i, j);
+			}
+		}
+	}
+	COUT(K);
 
 	return 0;
 }
