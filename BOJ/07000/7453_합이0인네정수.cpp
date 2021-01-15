@@ -43,11 +43,24 @@ int main()
 	}
 	sort(ALL(AB));
 	sort(ALL(CD));
+	int idx = CD.size() - 1;
+	int before = INT_MAX;
+	int cnt = 0;
 	for (auto num : AB)
 	{
-		ll upper = upper_bound(ALL(CD), -num) - CD.begin();
-		ll lower = lower_bound(ALL(CD), -num) - CD.begin();
-		answer += (upper - lower);
+		if (before == num)
+		{
+			answer += cnt;
+			continue;
+		}
+		cnt = 0;
+		before = num;
+		while (idx >= 0 && num + CD[idx] >= 0)
+		{
+			if (CD[idx] == -num) cnt++;
+			idx--;
+		}
+		answer += cnt;
 	}
 	COUT(answer);
 
