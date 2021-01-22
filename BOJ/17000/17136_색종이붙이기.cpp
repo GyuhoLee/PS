@@ -1,152 +1,94 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, 1, -1 };
 
-int arr[10][10];
-int block = 0;
-int answer = 26;
+int answer = 30, paper[5] = { 5, 5, 5, 5, 5 };
+vector<vector<int>> arr(10);
 
-struct color
+int use_paper()
 {
-	int one;
-	int two;
-	int three;
-	int four;
-	int five;
-	color(int num1, int num2, int num3, int num4, int num5) :one(num1), two(num2), three(num3), four(num4), five(num5) {}
-	int use()
+	int ret = 25;
+	FUP(i, 0, 4) ret -= paper[i];
+	return ret;
+}
+
+void change(int y, int x, int len)
+{
+	FUP(i, y, y + len)
 	{
-		return 25 - (one + two + three + four + five);
+		FUP(j, x, x + len)
+		{
+			arr[i][j] ^= 1;
+		}
 	}
-};
+}
 
-void input();
-void solve(int reamin, int y, int x);
-bool check(int num, int y, int x);
-void coloring(int num, int y, int x, int in);
-
-color paper(5, 5, 5, 5, 5);
-
+void solve(int y, int x, int remain)
+{
+	if (remain == 0)
+	{
+		answer = min(answer, use_paper());
+		return;
+	}
+	if (x >= 10)
+	{
+		solve(y + 1, 0, remain);
+		return;
+	}
+	if (!arr[y][x]) solve(y, x + 1, remain);
+	FUP(len, 0, 4)
+	{
+		if (x + len >= 10 || y + len >= 10) break;
+		bool ok = true;
+		FUP(i, y, y + len)
+		{
+			if (!arr[i][x + len]) ok = false;
+		}
+		FUP(j, x, x + len)
+		{
+			if (!arr[y + len][j]) ok = false;
+		}
+		if (!ok) break;
+		if (!paper[len]) continue;
+		change(y, x, len);
+		paper[len]--;
+		solve(y, x + len + 1, remain - (len + 1) * (len + 1));
+		paper[len]++;
+		change(y, x, len);
+	}
+}
 
 int main()
 {
-	input();
-	solve(block, 0, 0);
-	if (answer == 26) printf("-1");
-	else printf("%d", answer);
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
+	int remain = 0;
+	FUP(i, 0, 9)
+	{
+		arr[i].resize(10);
+		FUP(j, 0, 9)
+		{
+			CIN(arr[i][j]);
+			remain += arr[i][j];
+		}
+	}
+	solve(0, 0, remain);
+	answer == 30 ? COUT(-1) : COUT(answer);
 
 	return 0;
-}
-
-void input()
-{
-	for (int i = 0; i < 10; i++)
-	{
-		for (int j = 0; j < 10; j++)
-		{
-			scanf_s("%d", &arr[i][j]);
-			if (arr[i][j]) block++;
-		}
-	}
-}
-
-void solve(int remain, int y, int x)
-{
-	if (!x && y == 10)
-	{
-		answer = min(paper.use(), answer);
-		return;
-	}
-	if (!remain)
-	{
-		answer = min(paper.use(), answer);
-		return;
-	}
-	int nx = x + 1;
-	int ny = y;
-	if (nx == 10)
-	{
-		nx = 0;
-		ny = y + 1;
-	}
-	if (!arr[y][x])
-	{
-		solve(remain, ny, nx);
-		return;
-	}
-	
-	if (!check(1, y, x)) return;
-	if (paper.one)
-	{
-		coloring(1, y, x, 0);
-		paper.one--;
-		solve(remain - 1, ny, nx);
-		paper.one++;
-		coloring(1, y, x, 1);
-	}
-
-	if (!check(2, y, x)) return;
-	if (paper.two)
-	{
-		coloring(2, y, x, 0);
-		paper.two--;
-		solve(remain - 4, ny, nx);
-		paper.two++;
-		coloring(2, y, x, 1);
-	}
-
-	if (!check(3, y, x)) return;
-	if (paper.three)
-	{
-		coloring(3, y, x, 0);
-		paper.three--;
-		solve(remain - 9, ny, nx);
-		paper.three++;
-		coloring(3, y, x, 1);
-	}
-
-	if (!check(4, y, x)) return;
-	if (paper.four)
-	{
-		coloring(4, y, x, 0);
-		paper.four--;
-		solve(remain - 16, ny, nx);
-		paper.four++;
-		coloring(4, y, x, 1);
-	}
-	if (!check(5, y, x)) return;
-	if (paper.five)
-	{
-		coloring(5, y, x, 0);
-		paper.five--;
-		solve(remain - 25, ny, nx);
-		paper.five++;
-		coloring(5, y, x, 1);
-	}
-}
-
-bool check(int num, int y, int x)
-{
-	num--;
-	if (y + num > 9 || x + num > 9) return false;
-	for (int i = 0; i <= num; i++)
-	{
-		for (int j = 0; j <= num; j++)
-		{
-			if(!arr[y + i][x + j]) return false;
-		}
-	}
-	return true;
-}
-
-void coloring(int num, int y, int x, int in)
-{
-	num--;
-	for (int i = 0; i <= num; i++)
-	{
-		for (int j = 0; j <= num; j++)
-		{
-			arr[y + i][x + j] = in;
-		}
-	}
 }
