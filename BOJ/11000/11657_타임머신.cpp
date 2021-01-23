@@ -13,7 +13,7 @@ using namespace std;
 #define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
 #define ENDL cout << '\n'
 #define SIZE 501
-#define INF 1e18
+const int INF = 1e18;
 int dy[4] = { -1, 1, 0, 0 };
 int dx[4] = { 0, 0, 1, -1 };
 
