@@ -225,7 +225,7 @@
 
 #### 3. Math
 
-   3.1 Euclidean
+   3.1 Euclidean, Extended Euclidean
 
    3.2 Sieve of Eratosthenes
 
