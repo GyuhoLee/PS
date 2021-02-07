@@ -15,20 +15,18 @@ using namespace std;
 int dy[4] = { -1, 1, 0, 0 };
 int dx[4] = { 0, 0, 1, -1 };
 
-int N;
-int arr[501];
-int num[501];
-vector<int> v[501];
+int N, num, T[501], ans[501];
+vector<int> before[501];
 
 int DFS(int node)
 {
-	if (num[node] != -1) return num[node];
-	int cnt = 0;
-	for (int i : v[node])
+	if (ans[node] != -1) return ans[node];
+	int max_time = 0;
+	for (int b : before[node])
 	{
-		cnt = max(DFS(i), cnt);
+		max_time = max(max_time, DFS(b));
 	}
-	return num[node] = arr[node] + cnt;
+	return ans[node] = T[node] + max_time;
 }
 
 int main()
@@ -37,26 +35,22 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 
-	MS(num, -1);
+	MS(ans, -1);
 	CIN(N);
 	FUP(i, 1, N)
 	{
-		CIN(arr[i]);
-		while (1)
+		CIN(T[i]);
+		while(true)
 		{
-			int tmp;
-			CIN(tmp);
-			if (tmp == -1) break;
-			v[i].push_back(tmp);
+			CIN(num);
+			if (num == -1) break;
+			before[i].push_back(num);
 		}
 	}
 	FUP(i, 1, N)
 	{
-		if (num[i] == -1)
-		{
-			DFS(i);
-		}
-		COUT(num[i]);
+		if(ans[i] == -1) DFS(i);
+		COUT(ans[i]);
 		ENDL;
 	}
 
