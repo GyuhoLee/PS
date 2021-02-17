@@ -276,15 +276,13 @@
 
    6.3 *Rabin-Karp*
 
-   6.4 *Suffix Array*
+   6.4 ~~Manacher~~
 
-   6.5 ~~Manacher~~
+   6.5 ~~Aho-Corasick~~
 
-   6.6 ~~Aho-Corasick~~
+   6.6 ~~EER Tree~~
 
-   6.7 ~~EER Tree~~
-
-   6.8 ~~Circular LCS~~
+   6.7 ~~Circular LCS~~
 
 #### 7. Geometry
 
