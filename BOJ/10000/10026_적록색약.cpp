@@ -1,176 +1,72 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long int
+#define FUP(i, a, b) for(int i = a; i <= b; i++)
+#define FDOWN(i, a, b) for(int i = a; i >= b; i--)
+#define MS(a, b) memset(a, b, sizeof(a))
+#define ALL(v) v.begin(), v.end()
+#define CIN(a) cin >> a;
+#define CIN2(a, b) cin >> a >> b
+#define CIN3(a, b, c) cin >> a >> b >> c
+#define COUT(a) cout << a
+#define COUT2(a, b) cout << a << ' ' << b
+#define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
+#define ENDL cout << '\n'
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, 1, -1 };
 
-//R == 0 // G == 1 // B == 2
-vector<vector<int>> arr;
-vector<vector<bool>> check;
-int count1 = 0;
-int count2 = 0;
-int N;
+int N, arr[101][101], ans[2] = { 0, 0 };
+map<char, int> change = { {'R', 0}, {'G', 1}, {'B', 2} };
+bool visited[101][101];
 
-void change1(int i, int j);
-void change2(int i, int j);
+void DFS(int y, int x, int color)
+{
+	visited[y][x] = true;
+	FUP(i, 0, 3)
+	{
+		int ny = y + dy[i];
+		int nx = x + dx[i];
+		if (ny < 1 || nx < 1 || ny > N || nx > N || visited[ny][nx]) continue;
+		if (color && arr[y][x] / 2 != arr[ny][nx] / 2) continue;
+		else if (!color && arr[y][x] != arr[ny][nx]) continue;
+		DFS(ny, nx, color);
+	}
+}
 
 int main()
 {
-	cin >> N;
-	for (int i = 0; i < N; i++)
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
+	CIN(N);
+	FUP(i, 1, N)
 	{
-		vector<int> vTemp;
-		vector<bool> vTemp2(N, false);
-		check.push_back(vTemp2);
-		string sTemp;
-		cin >> sTemp;
-		for (int j = 0; j < N; j++)
+		FUP(j, 1, N)
 		{
-			switch (sTemp[j])
-			{
-			case 'R':
-				vTemp.push_back(0);
-				break;
-			case 'G':
-				vTemp.push_back(1);
-				break;
-			case 'B':
-				vTemp.push_back(2);
-				break;
-			}
-		}
-		arr.push_back(vTemp);
-	}
-	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < N; j++)
-		{
-			if (!check[i][j])
-			{
-				check[i][j] = true;
-				change1(i,j);
-				count1++;
-			}
+			char ch;
+			CIN(ch);
+			arr[i][j] = change[ch];
 		}
 	}
 
-	for (int i = 0; i < N; i++)
+	FUP(color, 0, 1)
 	{
-		for (int j = 0; j < N; j++)
+		MS(visited, false);
+		FUP(i, 1, N)
 		{
-			if (check[i][j])
+			FUP(j, 1, N)
 			{
-				check[i][j] = false;
-				change2(i, j);
-				count2++;
+				if (!visited[i][j])
+				{
+					ans[color]++;
+					DFS(i, j, color);
+				}
 			}
 		}
 	}
-
-	cout << count1 << " " << count2;
+	COUT2(ans[0], ans[1]);
 	
 
 	return 0;
-}
-
-void change1(int i, int j)
-{
-	bool status[4] = { 0, 0, 0, 0 };
-	//상하좌우 ( 1111)
-
-	//상 확인
-	if (i)
-	{
-		if (arr[i - 1][j] == arr[i][j] && !check[i - 1][j])
-		{
-			check[i - 1][j] = true;
-			status[2] = true;
-		}
-	}
-
-	//좌 확인
-	if (j)
-	{
-		if (arr[i][j] == arr[i][j - 1] && !check[i][j - 1])
-		{
-			check[i][j - 1] = true;
-			status[0] = true;
-		}
-	}
-
-	//우 확인
-	if (j < N - 1)
-	{
-		if (arr[i][j] == arr[i][j + 1] && !check[i][j + 1])
-		{
-			check[i][j + 1] = true;
-			status[1] = true;
-		}
-	}
-
-	//하 확인
-	if (i < N - 1)
-	{
-		if (arr[i + 1][j] == arr[i][j] && !check[i + 1][j])
-		{
-			check[i + 1][j] = true;
-			status[3] = true;
-			change1(i + 1, j);
-		}
-	}
-	if (j < N - 1 && status[1]) change1(i, j + 1);
-	if (i && status[2]) change1(i - 1, j);
-	if (j && status[0]) change1(i, j - 1);
-
-}
-
-void change2(int i, int j)
-{
-	bool status[4] = { 0, 0, 0, 0 };
-	//상하좌우 ( 1111)
-
-	//상 확인
-	if (i)
-	{
-		if (arr[i - 1][j] / 2 == arr[i][j] / 2 && check[i - 1][j])
-		{
-			check[i - 1][j] = false;
-			status[2] = true;
-		}
-	}
-
-	//좌 확인
-	if (j)
-	{
-		if (arr[i][j] / 2 == arr[i][j - 1] / 2 && check[i][j - 1])
-		{
-			check[i][j - 1] = false;
-			status[0] = true;
-		}
-	}
-
-	//우 확인
-	if (j < N - 1)
-	{
-		if (arr[i][j] / 2 == arr[i][j + 1] / 2 && check[i][j + 1])
-		{
-			check[i][j + 1] = false;
-			status[1] = true;
-		}
-	}
-
-	//하 확인
-	if (i < N - 1)
-	{
-		if (arr[i + 1][j] / 2 == arr[i][j] / 2 && check[i + 1][j])
-		{
-			check[i + 1][j] = false;
-			status[3] = true;
-			change2(i + 1, j);
-		}
-	}
-	if (j < N - 1 && status[1]) change2(i, j + 1);
-	if (i && status[2]) change2(i - 1, j);
-	if (j && status[0]) change2(i, j - 1);
-
 }
