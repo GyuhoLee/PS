@@ -259,7 +259,7 @@
 
    6.1 KMP
 
-   6.2 ~~tries~~
+   6.2 *tries*
 
    6.3 *Rabin-Karp*
 
