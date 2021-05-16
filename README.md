@@ -34,46 +34,6 @@
 
 * 주로 C++ 언어를 사용하였으며, Python과 Java도 가끔 사용합니다.
 
-* 아래는 제가 쓰는 코드의 기본 템플릿입니다.
-
-   >  ```c++
-   >  #include <bits/stdc++.h>
-   >  using namespace std;
-   >  #define ll long long int
-   >  #define FUP(i, a, b) for(int i = a; i < b; i++)
-   >  #define FDOWN(i, a, b) for(int i = a; i > b; i--)
-   >  #define MS(a, b) memset(a, b, sizeof(a))
-   >  #define ALL(v) v.begin(), v.end()
-   >  #define CIN(a) cin >> a;
-   >  #define CIN2(a, b) cin >> a >> b
-   >  #define CIN3(a, b, c) cin >> a >> b >> c
-   >  #define COUT(a) cout << a
-   >  #define COUT2(a, b) cout << a << ' ' << b
-   >  #define COUT3(a, b, c) cout << a << ' ' << b << ' ' << c
-   >  #define ENDL cout << '\n'
-   >  int dy[4] = { -1, 1, 0, 0 };
-   >  int dx[4] = { 0, 0, 1, -1 };
-   >  
-   >  
-   >  int main()
-   >  {
-   >  	ios_base::sync_with_stdio(false);
-   >  	cin.tie(0);
-   >  	cout.tie(0);
-   >  
-   >  	// 문제 풀이   
-   >  
-   >  	return 0;
-   >  }
-   >  ```
-
-   * 대회를 자주 나가다보니 타이핑을 빠르게 하는 것도 중요하게 생각했습니다.
-   
-   * 자주 쓰는 문법들을 매크로 함수를 정의하여 사용했습니다.
-   
-   * 소숫점 자리 출력이나 정수를 한 자리씩 입력 받는 문제에서는 scanf, printf를 사용하기도 합니다.
-   
-   * dy, dx는 인접 행렬에서 상하좌우를 의미합니다.
    
 <br><br>
 ---------------------
